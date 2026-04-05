@@ -8,13 +8,13 @@ Un solveur de labyrinthe écrit en **Python** utilisant l'algorithme de **Recher
 - Algorithme BFS avec gestion des parents pour la reconstruction du chemin.
 
 ## 🛠️ Installation
-```bash
+bash
 python3 -m venv .venv
 source .venv/bin/activate
+
 # Pas de dépendances externes pour le moment !
 
 # Exemple d'exécution
-```
 ====================
 S * * * #          
 # # # * #   # # #  
@@ -28,4 +28,4 @@ S * * * #
       # * * * # # #
 ====================
 
-Le chemin a été trouvé en 0.0017886161804199219s.```
+Le chemin a été trouvé en 0.0017886161804199219s.
