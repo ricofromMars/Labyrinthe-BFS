@@ -1,5 +1,6 @@
 from collections import deque
 from maze import Maze
+import time
 
 def resoudre_labyrinthe(labyrinthe: Maze):
     """
@@ -69,6 +70,9 @@ def reconstruire_chemin(parents, arrivee):
     return chemin[::-1]
 
 if __name__ == "__main__":
+    start_time = time.time()
     labyrinthe = Maze("maze.txt")
     chemin = resoudre_labyrinthe(labyrinthe)
     labyrinthe.afficher_labyrinthe(chemin)
+    elapsed_time = time.time()-start_time
+    print(f"Le chemin a été trouvé en {elapsed_time}s.")

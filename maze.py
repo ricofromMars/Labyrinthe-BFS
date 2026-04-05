@@ -8,13 +8,19 @@ class Maze:
         self.colonnes = len(self.grille[0])
         self.depart = self.recherche_symbole("E")
         self.arrivee = self.recherche_symbole("S")
-        
+    
+
     def recherche_symbole(self, symbole):
         for r in range(self.lignes):
             for c in range(self.colonnes):
                 if self.grille[r][c] == symbole:
                     return (r,c)
-    
+        match symbole:
+            case "E":
+                raise ValueError("Aucune entrée trouvée.")
+            case "S":
+                raise ValueError("Aucune sortie trouvée.")
+            
     def afficher_structure(self):
         print("Structure du labyrinthe")
         print("-----------------------")
@@ -31,14 +37,35 @@ class Maze:
         else:
             return False
         
-    def afficher_labyrinthe(self, chemin=[]):
+    def afficher_labyrinthe(self, chemin=None):
+        if chemin==None:
+            chemin = []
+
+        chemin_set = set(chemin) # plus rapide qu'une liste
+        
+        print("\n" + "=" * (self.colonnes*2)) # bordure supérieure
+
         for r in range(self.lignes):
+            ligne = []
             for c in range(self.colonnes):
-                if (r,c) in chemin:
-                    print("*", end='')
+                valeur = self.grille[r][c]
+
+                if (r,c) in chemin_set and valeur!="S" and valeur!="E":
+                    char = "*"
+                elif valeur == "1":
+                    char = "#"
+                elif valeur == "S":
+                    char = "S"
+                elif valeur == "E":
+                    char = "E"
                 else:
-                    print(self.grille[r][c], end='')
-            print()
+                    char = " "
+                
+                ligne.append(char)
+            
+            print(" ".join(ligne))
+
+        print("=" * (self.colonnes*2) + "\n")
 
     @staticmethod
     def charger_grille(nom):
