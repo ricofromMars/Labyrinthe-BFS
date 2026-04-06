@@ -6,6 +6,7 @@ Un solveur de labyrinthe écrit en **Python** utilisant l'algorithme de **Recher
 - Lecture de labyrinthes personnalisés via fichiers `.txt`.
 - Détection automatique du départ (`E`) et de l'arrivée (`S`).
 - Algorithme BFS avec gestion des parents pour la reconstruction du chemin.
+- Possibilité de passer un fichier .txt en argument sinon prend le fichier maze.txt par défaut
 
 ## 🛠️ Installation
 bash

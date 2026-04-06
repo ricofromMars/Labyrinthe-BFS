@@ -1,6 +1,7 @@
 from collections import deque
 from maze import Maze
 import time
+import sys
 
 def resoudre_labyrinthe(labyrinthe: Maze):
     """
@@ -70,9 +71,19 @@ def reconstruire_chemin(parents, arrivee):
     return chemin[::-1]
 
 if __name__ == "__main__":
+    # Vérifie si l'utilisateur a passé un nom de fichier en argument
+    if len(sys.argv) > 1:
+        nom_fichier = sys.argv[1]
+    else:
+        nom_fichier ="maze.txt"
+
     start_time = time.time()
-    labyrinthe = Maze("maze.txt")
+    labyrinthe = Maze(nom_fichier)
     chemin = resoudre_labyrinthe(labyrinthe)
-    labyrinthe.afficher_labyrinthe(chemin)
-    elapsed_time = time.time()-start_time
-    print(f"Le chemin a été trouvé en {elapsed_time}s.")
+
+    if chemin:
+        labyrinthe.afficher_labyrinthe(chemin)
+        elapsed_time = time.time()-start_time
+        print(f"Le chemin a été trouvé en {elapsed_time}s.")
+    else:
+        print("Aucun chemin trouvé.")
