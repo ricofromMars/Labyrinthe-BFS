@@ -55,7 +55,7 @@ def resoudre_labyrinthe(labyrinthe: Maze):
                     if distances.get((vr,vc), float('inf'))>cout:
                         distances[(vr,vc)] = cout
                         parents[(vr,vc)] = (ar,ac)
-                        heapq.heappush(heap, (distances[(vr,vc)], (vr,vc)))                                           
+                        heapq.heappush(heap, (distances[(vr,vc)] + heuristique((vr,vc),labyrinthe.arrivee), (vr,vc)))                                           
     return None
 
 def reconstruire_chemin(parents, arrivee):
@@ -75,6 +75,10 @@ def reconstruire_chemin(parents, arrivee):
         actuel = parents[actuel]
 
     return chemin[::-1]
+
+def heuristique(a, b):
+    """Calcule la distance de Manhattan entre deux points"""
+    return abs(a[0]-b[0]) + abs(a[1]-b[1])
 
 if __name__ == "__main__":
     # Vérifie si l'utilisateur a passé un nom de fichier en argument
