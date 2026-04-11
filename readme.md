@@ -1,4 +1,4 @@
-# Labyrinthe BFS Solver 🧩
+# Labyrinthe Solver 🧩
 
 Un solveur de labyrinthe écrit en **Python** utilisant l'algorithme de **Recherche en Largeur (BFS)** pour garantir le chemin le plus court.
 
@@ -6,7 +6,8 @@ Un solveur de labyrinthe écrit en **Python** utilisant l'algorithme de **Recher
 - Lecture de labyrinthes personnalisés via fichiers `.txt`.
 - Détection automatique du départ (`E`) et de l'arrivée (`S`).
 - Algorithme BFS avec gestion des parents pour la reconstruction du chemin.
-- Possibilité de passer un fichier .txt en argument sinon prend le fichier maze.txt par défaut
+- Algotithme Dijkstra avec prise en compte du cout des cases
+- Algorithme A Star ave calcul heuristique Manhattan
 
 ## 🛠️ Installation
 bash
@@ -15,7 +16,7 @@ source .venv/bin/activate
 
 ## Pas de dépendances externes pour le moment !
 
-## Exemple d'exécution
+## Exemple d'exécution BFS
 ```
 ====================
 S * * * #          
